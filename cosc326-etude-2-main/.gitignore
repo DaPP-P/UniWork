@@ -1,0 +1,11 @@
+# Compiler outputs
+__pycache__
+*.class
+bin
+
+# Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Pickle files outside of proper directory
+./*.pkl
