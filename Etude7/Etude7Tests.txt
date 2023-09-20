@@ -1,0 +1,68 @@
+# Tests
+
+Test places:
+San Diego, latitude = 32.7, longitude = -117.2
+Dunedin, latitude = -45.9, longitude = 170.5
+
+A few conditions must be met with all of the inputs. 
+* Different values must be separated by at least one comma or space.
+* The first input must be a number and if there is a direction it must be the following value.
+* Names can not contain a space or comma and if there is a name it must be the last value in the input.
+
+## Standard Form
+
+San Diego
+32.7, -117.2 SanDiego
+32.7 N -117.2 SanDiego
+32.7 N -117.2 East SanDiego
+32.7 117.2 West SanDiego
+-32.7 South 117.2 w SanDiego
+-32.7 s -117.2 E SanDiego
+117.2 West -32.7 s SanDiego
+-117.2 East 32.7 North SanDiego
+
+Dunedin
+-45.9, 170.5 Dunedin
+-45.9 N 170.5 Dunedin
+-45.9 N 170.5 East Dunedin
+-45.9 -170.5 West Dunedin
+45.9 South -170.5 w Dunedin
+45.9 s 170.5 E Dunedin
+-170.5 West 45.9 s Dunedin
+170.5 East -45.9 North Dunedin
+
+## Degree, Minutes, Seconds Form
+
+San Diego
+32° 42' 0" N 117° 12' 0" W SanDiego
+32 42 0 N 117 12 0 West SanDiego
+-32° -42' 0" S -117° -12' 0" E SanDiego
+-32 -42' 0 s -117 -12 0 east SanDiego
+117° 12' 0" W 32° 42' 0" N SanDiego
+117 12 0 W 32 42 0 N SanDiego
+-117° -12' 0" E -32° -42' 0" S SanDiego
+-117 -12 0 E -32 -42 0 s SanDiego
+
+Dunedin
+45° 54' 0" S 170° 30' 0" E Dunedin
+45 54 0 S 170 30 0 E Dunedin
+-45° -54' 0" N -170° -30' 0" W Dunedin
+-45 -54 0 n -170 -30 0 west Dunedin
+170° 30' 0" E 45° 54' 0" S Dunedin
+170 30 0 E 45 54 0 S Dunedin
+-170° -30' 0" W -45° -54' 0" N Dunedin
+-170 -30 0 w -45 -54 0 north Dunedin
+
+## Degree and Decimal Minutes Form
+
+San Diego
+32° 42.0' N 117° 12.0' W SanDiego
+117° 12.0' W 32° 42.0' N SanDiego
+-32° -42.0' s -117° -12.0' east SanDiego
+-117° -12.0' East -32° -42.0' s SanDiego
+
+Dunedin
+45° 54.0' S 170° 30.0 E Dunedin
+170° 30.0' East 45° 54.0' s Dunedin
+-45° -54.0' n -170° -30.0' west Dunedin
+-170° -30.0' w -45° -54.0' n Dunedin

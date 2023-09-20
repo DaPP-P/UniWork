@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // Resub: added function to start the live server.
+        function startLiveServer() {
+            const vscode = acquireVsCodeApi();
+            vscode.postMessage({ command: 'startLiveServer'});
+        }
+        // Resub: Calls the function. 
+        startLiveServer();
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script> 
+    <style>
+        #map {position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+    </style>
+</head>
+<body>
+    <div id = "map"></div>
+    <script>
+        var map = L.map('map').setView([0, 0], 1);
+
+        L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}@2x.png?key=gcB19G4wqc9USUPQi8Oe', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+        }).addTo(map);
+
+        // fetches the coordiantes from the geojson file.
+        fetch('outputtedCoordinates.geojson')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(geojson) {
+            var feature = geojson.features[0];
+
+            var coordinates = feature.geometry.coordinates;
+            var latitude = coordinates[1];
+            var longitude = coordinates[0];
+            var name = feature.properties.name;
+
+            L.marker([latitude, longitude]).addTo(map).bindPopup(name);
+        })
+        .catch(function(error) {
+            console.log('Error:', error);
+        });
+</script>
+
+</body>
+</html>
