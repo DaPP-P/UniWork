@@ -8,9 +8,15 @@ An API is a contact of sorts. It defines how it is expect to be used and it defi
 Screenshot at 10.30 here.
 ```
 ## REST
-
 Rest stands for Representational State Transfer. 
 ```
 Screenshot of 24.00 here.
 ```
+### CRUD
+Crud stands for Create, Read, Update and Delete
+```
+screenshot 28.05 here.
+```
 
+## Curl
+Curl is an open sourced tool that is used to send data back and forth and it runs locally on your computer.
